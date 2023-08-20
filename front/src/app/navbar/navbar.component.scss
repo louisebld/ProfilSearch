@@ -1,0 +1,119 @@
+.header {
+    background-color: var(--color-lg-grey);
+    color: black;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--color-grey);
+    border-radius: 0;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin: 0 auto;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    .title{
+        display: flex;
+        align-items: center;
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .button {
+            background-color: var(--color-lg-red);
+            color: var(--color-white);
+            border: none;
+            padding: 10px;
+            margin-left: 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: var(--color-lg-red);
+                color: var;
+            }
+        }
+    }
+    .nav {
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .nav-item {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: var(--color-lg-red);
+            }
+            span {
+                border-bottom: 1px solid var(--color-lg-red);
+            }
+        }
+        .button {
+            background-color: var(--color-lg-red);
+            color: var(--color-white);
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                background-color: var(--color-lg-red);
+                color: var;
+            }
+        }
+        .button:hover {
+            background-color: #df5959;
+            color: var;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .profile-name {
+                font-size: 1.2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                color: var(--color-lg-red);
+                
+            }
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .title {
+            margin-bottom: 20px;
+        }
+        .nav {
+            width: 100%;
+            justify-content: space-between;
+            .nav-item {
+                font-size: 1rem;
+            }
+            .button {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+

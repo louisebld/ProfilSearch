@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="login-container">
+        <div class="header">
+            <div class="title">
+                <img src="../../assets/images/cle.png" alt="cle">
+                <h1>Se connecter</h1>
+            </div>
+            <p>Cette page est réservée aux employés de ProfilSearch</p>
+        </div>
+        <div class="error" *ngIf="error !== undefined">
+            <p>Vous n'avez pas les autorisations nécessaires pour vous connecter.</p>
+            <p>Veuillez contacter un administrateur pour en savoir plus.</p>
+        </div>
+
+        <!-- <div class="inputs">
+            <div class="input">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="input">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" placeholder="Mot de passe">
+            </div>
+        </div>
+        <div class="button">
+            <span routerLink="/admin">Se connecter</span>
+        </div> -->
+        <div class="GoogleButton">
+            <a href="{{constantes.GOOGLE_AUTH_URL}}" class="link">
+
+            <img class="google"src="../../../assets/images/google-logo.png" alt="google">
+            <p>Se connecter avec Google</p>
+            </a>
+        </div>
+    </div>
+</div>

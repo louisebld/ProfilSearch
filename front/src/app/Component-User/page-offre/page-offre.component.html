@@ -1,0 +1,80 @@
+<section>
+    <div class="section">
+        <div class="left-container">
+            <div class="content">
+                <div class="offre-title">
+                    <span>Le poste</span>
+                    <h3>{{ offre.name }}</h3>
+                </div>
+                <div class="offre-infos">
+                    <span class="offre-salary">{{ offre.salary }}€</span>
+                    <span class="offre-type">{{ offre.type }}</span>
+                    <span class="offre-place">{{ offre.place }}</span>
+                    <span class="offre-published">Publiée le {{formatDate()}}</span>
+                </div>
+            </div>
+            <div class="button">
+                <span (click)="scrollToElement('postuler')">Postuler</span>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="content">
+
+                <!-- *ngIf="imageUrl" -->
+                <div class="div-image" id="div-image">
+                    <!-- <img [ngSrc]="this.offre.imageUrl" > -->
+                    <img  id="offre-image" alt="offre-image">
+                </div>
+
+                <h1>Description du poste</h1>
+                <div class="offre-description">
+                    <p>{{ offre.description }}</p>
+                    <!-- afficher la liste de bullets points -->
+                    <div class="bullets-points">
+                        <ul>
+                            <li *ngFor="let bullet of offre.bullets">{{ bullet }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="offre-questions">
+                    <div class="infos-perso">
+                        <h1 class="title">Informations personnelles</h1>
+                        <p class="subtitle">Renseigner ici vos informations personnelles pour que nos agents puissent vous recontacter.</p>
+                        <div class="infos">
+                            <div class="info">
+                                <span>Prénom</span>
+                                <input type="text" id="fname" [(ngModel)]="candidature.fname" required>
+                            </div>
+                            <div class="info">
+                                <span>Nom</span>
+                                <input type="text" id="name"  [(ngModel)]="candidature.name" required>
+                            </div>
+                            <div class="info">
+                                <span>Email</span>
+                                <input type="text" id="email" [(ngModel)]="candidature.email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 id="postuler">Questions</h1>
+                    <p>Voici quelques questions pour nous aider à mieux vous connaître avant un futur entretien.</p>
+                    <div class="questions">
+                        <div *ngFor="let question of offre.questions; let i= index" class="offre-question">
+                            <span class="offre-question-title">{{ question["question"] }}</span>
+                            <div class="question-answer">
+                                <textarea id="{{question['id']}}" name="{{question['id']}}" [(ngModel)]="candidature.reponses[i].reponse"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="error-field"></p>
+                    <div class="postuler-offre">
+                        <div class="button" (click)="postuler()">
+                            <span>Postuler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

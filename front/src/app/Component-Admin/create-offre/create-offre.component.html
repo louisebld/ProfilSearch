@@ -1,0 +1,95 @@
+<section>
+    <div class="section">
+        <div class="offre-header">
+            <header>
+                <h1>Informations de l'offre</h1>
+                <div class="offre-question">
+                    <span class="offre-question-title">Intitulé de l'offre</span>
+                    <input type="text" [(ngModel)]="offre.name">
+                </div>
+                <div class="offre-question">
+                    <span class="offre-question-title">Type de contrat</span>
+                    <select [(ngModel)]="offre.type">
+                        <option value="CDI">CDI</option>
+                        <option value="CDD">CDD</option>
+                        <option value="Stage">Stage</option>
+                        <option value="Apprentissage">Apprentissage</option>
+                        <!-- Ajoutez d'autres options ici -->
+                    </select>
+                </div>
+                <div class="offre-question">
+                    <span class="offre-question-title">Lieu</span>
+                    <input type="text" [(ngModel)]="offre.place">
+                </div>
+
+                <div class="offre-question">
+                    <span class="offre-question-title">Salaire</span>
+                    <input type="number" [(ngModel)]="offre.salary">
+                </div>
+
+            </header>
+        </div>
+        <div class="offre-section">
+            <div class="offre-descritpion">
+                <span class="offre-question-title">Description de l'offre</span>
+                <textarea name="answer" class="offre-question-answer" cols="30" rows="10" [(ngModel)]="offre.description"></textarea>
+            </div>
+            <hr/>
+            <div class="offre-bullet-container">
+                <span class="offre-question-title">Informations additionnelles</span>
+                <div class="offre-bullet-item" *ngFor="let bulletControl of bulletControls; let i = index;">
+                    <ul class="offre-question-answer">
+                        <li class="li-area">
+                            <textarea type="text" cols="100" rows="10" class="bulletarea" [formControl]="bulletControl"></textarea>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="button rounded" (click)="addBulletPoint()">
+                    <span class="material-icons">
+                        add
+                    </span>
+                </button>
+            </div>
+            <hr />
+            <div class="offre-questions">
+                <span class="offre-question-title">Questions</span>
+                <div class="offre-question" *ngFor="let question of getQuestionsArray(nbQuestion); let i = index;">
+                    <span class="offre-question-title">Question {{ i+1 }}</span>
+                <select class="select" (change)="modifierQuestion(i, $event)">
+                    <option *ngFor="let question of listquestions" [value]="question.question">{{ question.question }}</option>
+                    </select>
+                </div>
+
+                <div class="buttons">
+                    <div class="offre-question">
+                        <div class="button" (click)="ajouterQuestion()">
+                            <span>Ajouter une question</span>
+                        </div>
+                    </div>        
+                
+                    <div class="create-question">
+                        <div class="button" (click)="createQuestion()">
+                            <span>Créer une question</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="offre-options">
+                <span class="offre-question-title">Options de l'offre</span>
+                <mat-slide-toggle [(ngModel)]="this.offre.published" class="toggle">
+                    Visible publiquement
+                </mat-slide-toggle>
+                <h3>Choisir un fichier (optionnel)</h3>
+                <input type="file" (change)="onFileSelected($event)">
+            </div>
+            <p id="error-field"></p>
+        </div>
+        <div class="creer-offre">
+            <div class="button" (click)="creerOffre()">
+                <span>Creer</span>
+            </div>
+        </div>
+    </div>
+</section>
